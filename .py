@@ -47,4 +47,4 @@ async def limpiar(ctx):
     await ctx.channel.purge()
     await ctx.send("Mensajes eliminados", delete_after = 3)
 
-bot.run("MTMzNDMwMTc2Mzg4ODc0MjQyMQ.GA3hXP.gL-KeWReUkp0eLo4R2gvM2xElQr7QqNklDHsKY")
+bot.run("token aquí")
