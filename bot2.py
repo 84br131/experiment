@@ -106,6 +106,29 @@ async def poke(ctx,arg):
             await ctx.send(image_url)
     except Exception as e:
         print("Error:", e)
+
+def get_cat_image_url():
+    url = 'https://api.thecatapi.com/v1/images/search'
+    res = requests.get(url)
+    data = res.json()
+    return data[0]['url']
+
+@bot.command()
+async def gato(ctx):
+    image_url = get_cat_image_url()
+    await ctx.send(image_url)
+
+def get_advice():
+    url = 'https://api.adviceslip.com/advice'
+    res = requests.get(url)
+    data = res.json()
+    return data['slip']['advice']
+
+@bot.command()
+async def consejo(ctx):
+    advice = get_advice()
+    await ctx.send(f"💡 Consejo: {advice}")
+
 @poke.error
 async def error_type(ctx,error):
     if isinstance(error,commands.errors.MissingRequiredArgument):
